@@ -29,6 +29,40 @@ If it is just to run the application:
 <a href="https://www.docker.com/"> Docker</a>,
 <a href="https://docs.docker.com/compose/"> Docker Compose </a>,
 
+
+# Running
+
+### - Clone the project using (HTTPS):
+
+    git clone https://github.com/3barney/Twitter-Clone.git
+
+### - Access the project folder: twitter_clone_rest_api
+
+    cd twitter_clone_rest_api/
+
+### - Generate the project image (API + PostgreSQL) with Docker Compose, in the same directory as the docker-compose.yml file
+
+    docker-compose up
+
+### - Local access URL:
+
+    Base URL: http://localhost:8080/v1/
+
+    DOC: http://localhost:8080/v1/swagger-ui.html/
+
+### - API Roles
+
+    To use, you must have an account or create an account first. And then, log in, taking the token and sending the other endpoints to be able to use them.
+
+    Free endpoints to use, without having to send a token:
+
+    - Create account: /api/auth/signup
+    - Auth: /api/auth/signIn
+
+    Mandatory header example:
+
+    {key: Authorization, value: Bearer flkjkds.......}
+
 # Summary
 
 The following endpoints were implemented.
@@ -72,40 +106,6 @@ The following endpoints were implemented.
     6. Get User details and tweets
        [GET]  http://localhost:8080/v1/api/user/{userName}
 
-
-
-# Running
-
-### - Clone the project using (HTTPS):
-
-    git clone https://github.com/EnsleyEC/luizalabs_api.git
-
-### - Access the project folder: luizalabs-server-rest
-
-    cd twitter_clone_rest_api/
-
-### - Generate the project image (API + PostgreSQL) with Docker Compose, in the same directory as the docker-compose.yml file
-
-    docker-compose up
-
-### - Local access URL:
-
-    Base URL: http://localhost:8080/
-
-    DOC: http://localhost:8080/v1/swagger-ui.html/
-
-### - API Roles
-
-    To use, you must have an account or create an account first. And then, log in, taking the token and sending the other endpoints to be able to use them.
-
-    Free endpoints to use, without having to send a token:
-
-    - Create account: /api/auth/signup
-    - Auth: /api/auth/signIn
-
-    Mandatory header example:
-
-    {key: Authorization, value: Bearer flkjkds.......}
 
 # Tests
 
