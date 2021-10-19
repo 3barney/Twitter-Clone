@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+  app-server:
+    build:
+      context: twitter_clone_rest_api #
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/postgres?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: barney
+    networks:
+      - backend
+
+  db:
+    image: 'postgres:latest'
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_DATABASE: polls
+      POSTGRES_PASSWORD: barney
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+
+# Volumes
+volumes:
+  db-data:
+
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
